@@ -1,0 +1,77 @@
+<%- include('partials/header.ejs') %>
+<div class="space"></div>
+<% if (locals.data) { %>
+    <div class="content" style="background-color: rgb(248, 222, 188);">
+        <div class="title"><%= class_name %></div>
+        <div class="title"><%= data[0] ></div>
+        <div class="cards">
+            <% data.forEach(attendance => { %>
+                <div class="attendance_card">
+                    <div class="up">
+                        <div class="title">Time: <%= attendance.time %></div>
+                        <div style="width: 200px; height: 200px"><canvas id="acquisitions<%= attendance.id %>"></canvas></div>
+                    </div>
+                    <script src="/scripts/chart.js/dist/chart.umd.js"></script>
+                    <script>
+
+                        (async function() {
+                            new Chart(
+                            document.getElementById('acquisitions<%= attendance.id %>'),
+                            {
+                              type: 'doughnut',
+                              data: {
+                                labels: [
+                                    'Present',
+                                    'Absent'
+                                ],
+                                datasets: [
+                                  {
+                                    label: 'Students',
+                                    data: [parseInt('<%= attendance.present_count %>'),parseInt('<%= attendance.absent_count %>')],
+                                    backgrounfColor: [
+                                        'rgb(75, 104, 137)',
+                                        'rgb(255, 0, 0)'
+                                    ],
+                                    hoverOffset: 4
+                                  }]
+                              }
+                            }
+                          );
+                        })();
+                    </script>
+                    <div class="down">
+                        <div class="num_box">
+                            <div class="title">Present Students</div>
+                            <div class="numbers"><%= attendance.present %></div>
+                        </div>
+                        <div class="num_box">
+                            <div class="title">Absent Students</div>
+                            <div class="numbers"><%= attendance.absent %></div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        
+    </div>
+ 
+<% }else if(locals.error){ %>
+    <div class="content">
+        <div class="title"><%= error %></div>
+    </div>
+<% }else{ %>
+    <div class="content">
+        <div class="title">View Attendance</div>
+        <form action="/<%= id %>/view_attendance/" class="attend_form" method="post">
+            <div class="viewform">
+                <div class="date">
+                    <input type="date" name="date">
+                </div>
+                <div>
+                    <input type="submit" class="submit" value="view">
+                </div>
+            </div>
+        </form>
+    </div>
+<% } %>
+<%- include('partials/footer.ejs') %>

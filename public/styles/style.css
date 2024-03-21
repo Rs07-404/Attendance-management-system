@@ -1,0 +1,517 @@
+@font-face {
+    font-family: Quicksand;
+    src: url("/fonts/Quicksand-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: norwester;
+    src: url("/fonts/norwester.otf");
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Quicksand;
+    transition: 0.2s;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+header{
+    position: fixed;
+    height: 15vh;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Quicksand;
+    height: 15vh;
+    width: 100vw;
+    background-color: rgb(244, 211, 194);
+    border-bottom: 1px solid grey ;
+}
+
+.space{
+    height: 15vh;
+}
+
+.header > .heading{
+    flex: 1;
+    width: 60vw;
+    font-size: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    word-spacing: 1vw;
+    letter-spacing: 2px;
+}
+
+
+.header > .nav{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+}
+
+.nav > form{
+    flex: 1;
+}
+
+.nav > .box{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.back{
+    display: flex;
+    font-size: large;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    border: none;
+    background-color: rgb(75, 104, 137);
+    color: white;
+    border-radius: 20px;    
+    width: 25vw;
+    height: 4vh;
+}
+
+.back > div > svg{
+    fill: white;
+}
+
+.logout{
+    display: flex;
+    font-size: large;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    border: none;
+    background-color: red;
+    /* rgb(75, 104, 137); */
+    color: white;
+    border-radius: 20px;    
+    width: 25vw;
+    height: 4vh;
+}
+
+
+.current{
+    flex: 1;
+    display: flex;
+    font-family: norwester;
+    font-size: xx-large;
+    justify-content: center;
+    align-items: center;
+    color: rgb(75, 104, 137);
+}
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    min-height: 79vh;
+    max-height: max-content;
+    padding-top: 1vh;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 13px;
+}
+
+
+
+.greet{
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.title{
+    display: flex;
+    font-size: x-large;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5vh;
+    font-weight: 800;
+    color: #5f5e5e;
+}
+
+.subject{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: 800;
+
+}
+
+.class_title{
+    display: flex;
+    font-size: large;
+}
+
+.des{
+    display: flex;
+    font-size: large;
+    font-weight: 600;
+}
+
+#init{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+}
+
+.headle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.ele_up{
+    position: absolute;
+    top: -16%;
+    right: -6%;
+    z-index: 1;
+}
+
+.ele_up > img,
+.ele_down > img{
+    height: 256px;
+    width: 300px;
+    aspect-ratio: 1;
+}
+
+.ele_down{
+    position: absolute;
+    top: 84%;
+    left: -20%;
+    z-index: -1;
+
+}
+
+#init form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#init .form .input{
+    width: 60vw;
+    height: 5vh;
+    margin: 1rem;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 8px;
+}
+
+input[class="submit"]{
+    display: flex;
+    width: 30vw;
+    height: 6vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(75, 104, 137);
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    border:none;
+    border-radius: 8px;
+}
+
+
+input[class="submit"]:hover{
+    background-color: rgb(43, 89, 141);
+}
+
+footer{
+    display: flex;
+    height: 5vh;
+    width: 100vw;
+    font-size: small;
+    background-color: rgb(75, 104, 137);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#home{
+    /* padding: 1rem; */
+    display: flex;
+    justify-content: flex-start;
+    /* background-image: url('/images/bg_home.jpg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5vw;
+}
+
+.btn{
+    display: flex;
+    height: 15vh;
+    width: 80vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(243, 217, 208);
+    font-size: x-large;
+    font-weight: bold;
+    border: none;
+    border-radius: 13px;
+    gap: 5vw;
+}
+
+.btn > a{
+    color: black;
+    text-decoration: none;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    border: 1px solid rgb(200, 200, 200);
+    height: 15vh;
+    width: 80vw;
+    background-color: rgb(243, 217, 208);
+    border-radius: 8px;
+    font-size: large;
+}
+
+.card:hover{
+    box-shadow: 2px 4px 32px grey;
+}
+
+.card > .top{
+    flex: 1;
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    color: black;
+    border: none;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.card > .bottom{
+    flex: 1;
+    display: flex;
+    width: 80%;
+    color: black;
+    border: none;
+    font-weight: 500;
+    border-radius: 0 0 8px 8px;
+}
+
+.add > svg{
+    fill: rgb(11, 255, 3);
+}
+
+.view > svg{
+    fill: rgb(0, 170, 255);
+}
+
+.edit > svg{
+    fill: rgb(242, 78, 18);
+}
+
+.classlist{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2vh;
+}
+
+.classlist > .btn{
+    width: 50vw;
+    height: 15vw;
+}
+
+
+.attend_form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 5px;
+}
+
+
+.attend_form > .status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 80vw;
+}
+
+.attend_form > .status > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-size: larger;
+}
+
+input[type="radio"]{
+    width: 6vw;
+    height: 6vh;
+    accent-color: rgb(203, 6, 203);
+}
+
+.checks{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8vw;
+    height: 40vh;
+    overflow-y: scroll;
+    padding: 1rem;
+    border: none;
+    background-color: rgb(244, 211, 194);
+    border-radius: 13px;
+    margin-bottom: 1vh;
+}
+
+.checkbox{
+    width: 40px;
+    aspect-ratio: 1;
+}
+
+.check{
+    flex: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+label{
+    font-weight: bold;
+}
+
+.animation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    aspect-ratio: 1;
+}
+
+.success{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.success > .greet > .suc{
+    font-size: xx-large;
+    font-weight: bold;
+    color: rgb(0, 255, 0);
+}
+
+.date > input{
+    width: 60vw;
+    height: 8vh;
+    border: 1px solid grey;
+    border-radius: 13px;
+    font-size: xx-large;
+    padding: 1rem;
+}
+
+.viewform{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 80vw;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    background-color: rgb(244, 211, 194);
+    border-radius: 13px;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    padding: 5px;
+}
+
+.attendance_card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    background-color: white;
+    width: 80%;
+    padding: 1rem;
+}
+
+.attendance_card > .up,
+.attendance_card > .down{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+}
+
+.attendance_card > .down > .num_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    gap: 2px;
+}
+
+.attendance_card > .dowwn > .num_box > .numbers{
+    text-align: center;
+}

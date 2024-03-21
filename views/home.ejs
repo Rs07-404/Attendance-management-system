@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs') %>
+<div class="space"></div>
+<div class="content">
+    <div class="greet">
+        <div class="title">Welcome ! !</div>
+        <div class="title"><%= name %></div>
+    </div>
+    <div class="classlist">
+        <% data.forEach(function(clas){%>
+                <a style="text-decoration: none;" href="/actions/<%= clas.id %>">
+                    <div class="card">
+                        <div class="top">
+                            <div class="class_title"><%= clas.class_name %></div>
+                            <div class="des"><%= clas.subject_name %></div>
+                        </div>
+                        <div class="bottom">
+                            <%= clas.student_count %> Student
+                        </div>
+                    </div>
+                </a>
+        <% }); %>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %> 
