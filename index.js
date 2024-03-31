@@ -5,7 +5,7 @@ import pg from "pg";
 
 //Initialization
 const app = new express();
-const port = 5000;
+const port = 3000;
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -75,12 +75,14 @@ app.post('/login', async (req,res)=>{
     let pass = req.body["password"];
     let result = await db.query("SELECT * FROM teacher WHERE username = $1;",[user]);
     const data = result.rows[0];
-    if(pass === data.password){
-        const name = data.name;
-        const id = data.id;
-        login.push(id);
-        login.push(name);
-        login_status = true;
+    if(data){
+        if(pass === data.password){
+            const name = data.name;
+            const id = data.id;
+            login.push(id);
+            login.push(name);
+            login_status = true;
+        }
     }
     res.redirect('/');
 });
@@ -139,7 +141,9 @@ app.post('/submit_attendance/:id', async (req, res)=>{
                 }
             }
         }
-        result = await db.query("INSERT INTO attendance(class_id,subject_id,status,roll_nos) VALUES($1,$2,$3,$4)",[result.class_id, id, status, attendance]);
+        const date = new Date();
+        const time = date.getHours() + ":" + date.getMinutes();
+        result = await db.query("INSERT INTO attendance(class_id,subject_id,attendance_time,status,roll_nos) VALUES($1,$2,$3,$4,$5)",[result.class_id, id, time, status, attendance]);
         if(result){
             res.redirect(`/take_attendance/success/${id}`);
         }
@@ -179,7 +183,7 @@ app.post('/:id/view_attendance/', async (req,res)=>{
         let class_id = counts.class_id;
         let name = await db.query("SELECT year, department FROM classes WHERE id = $1",[class_id]);
         const class_name = name.rows[0].year + ' ' + name.rows[0].department;        
-        const data = result.rows;
+        let data = result.rows;
         if(data.length > 0){
             let attendance = [];
             for (let  i = 0; i < result.rows.length; i ++) {
@@ -208,7 +212,7 @@ app.post('/:id/view_attendance/', async (req,res)=>{
                 const new_data = {
                     id: i,
                     date: `${data[i].attendance_date}`.slice(0,15),
-                    time: `${data[i].attendance_date}`.slice(15,21),
+                    time: data[i].attendance_time,
                     present_count: present_count,
                     absent_count: absent_count,
                     present: present,
