@@ -70,7 +70,7 @@ To set up the project locally, follow these steps:
 4. Use the interface to take, view, and edit attendance records.
 
 ## Team
-- **Raunak Shah:** Backend Development
+- **Raunak Shah:** Frontend and Backend Development with database design
 
 ## Conclusion
 The Web-Based Attendance Management System aims to revolutionize attendance tracking in educational institutions by providing a comprehensive, efficient, and user-friendly solution. By digitizing the attendance process, the system enhances accuracy, saves time, and improves overall efficiency.
